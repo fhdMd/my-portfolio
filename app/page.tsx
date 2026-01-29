@@ -13,7 +13,7 @@ const PROJECTS = [
     image: "/images/okiro-arise.png",
     gradient: "from-green-500 to-emerald-600",
     links: { 
-      github: null, 
+      github: "https://github.com/fhdMd/okiro-arise", 
       live: "https://my-portfolio-self-alpha-43.vercel.app/" 
     }
   },
