@@ -7,6 +7,17 @@ import { motion } from 'framer-motion';
 // --- PROJECT DATA ---
 const PROJECTS = [
   {
+    title: "Okiro Arise",
+    description: "Mobile fitness application designed to help users track workouts, set goals, and maintain healthy habits. Built with modern mobile development practices for optimal performance.",
+    tags: ["Mobile Dev", "Fitness", "React Native", "UI/UX"],
+    image: "/images/okiro-arise.png",
+    gradient: "from-green-500 to-emerald-600",
+    links: { 
+      github: null, 
+      live: "https://my-portfolio-self-alpha-43.vercel.app/" 
+    }
+  },
+  {
     title: "The Foodies Hub",
     description: "Next.js recreation of Figma designs with Express.js backend. Features unique restaurant menus and multi-address cart management. Dockerized for deployment.",
     tags: ["Next.js", "TypeScript", "MongoDB", "Docker", "Node.js"],
@@ -56,7 +67,7 @@ const Portfolio = () => {
   }, [isDark]);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener('mousemove', handleMouseMove);
@@ -199,24 +210,26 @@ const Portfolio = () => {
                 
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-6">
-                    {/* Updated Icon Container with conditional padding */}
-                    <div className={`${proj.title === "Soul Notes" ? 'p-1.5' : 'p-4'} bg-gradient-to-br ${proj.gradient} rounded-2xl shadow-lg overflow-hidden w-16 h-16 flex items-center justify-center`}>
-  <img 
-    src={proj.image} 
-    alt={`${proj.title} logo`}
-    className="w-full h-full object-contain"
-  />
-</div>
+                    {/* Icon Container */}
+                    <div className={`${proj.title === "Soul Notes" ? 'p-1.5' : 'p-4'} ${proj.title === "Okiro Arise" ? 'bg-black' : `bg-gradient-to-br ${proj.gradient}`} rounded-2xl shadow-lg overflow-hidden w-16 h-16 flex items-center justify-center`}>
+                      <img 
+                        src={proj.image} 
+                        alt={`${proj.title} logo`}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                     <div className="flex gap-3">
-                      <motion.a 
-                        whileHover={{ scale: 1.2, rotate: 10 }}
-                        href={proj.links.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`p-2 rounded-lg transition-colors ${isDark ? 'text-slate-400 hover:text-white' : 'text-slate-500 hover:text-slate-900'}`}
-                      >
-                        <Github size={20} />
-                      </motion.a>
+                      {proj.links.github && (
+                        <motion.a 
+                          whileHover={{ scale: 1.2, rotate: 10 }}
+                          href={proj.links.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`p-2 rounded-lg transition-colors ${isDark ? 'text-slate-400 hover:text-white' : 'text-slate-500 hover:text-slate-900'}`}
+                        >
+                          <Github size={20} />
+                        </motion.a>
+                      )}
                       {proj.links.live && (
                         <motion.a 
                           whileHover={{ scale: 1.2, rotate: -10 }}
