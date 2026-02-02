@@ -14,7 +14,7 @@ const PROJECTS = [
     gradient: "from-green-500 to-emerald-600",
     links: { 
       github: "https://github.com/fhdMd/okiro-arise", 
-      live: "https://my-portfolio-self-alpha-43.vercel.app/" 
+      live: "https://my-portfolio-8rwbay129-fhdmds-projects.vercel.app/" 
     }
   },
   {
